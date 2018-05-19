@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
 import TWEEN from '@tweenjs/tween.js';
 import Scene from '../Core/Scene';
-import * as SceneComps from '../Components/Comps';
+import Slider from 'react-slick';
 
 function importAll(r) {
     return r.keys().map(r);
 }
 
-const images = importAll(require.context('../assets/img/random', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../assets/img/album', false, /\.(png|jpe?g|svg)$/));
 
 export class AlbumTween extends Scene {
-
-    fadeImage = { opacity: 0 };
-    imageTw = new TWEEN.Tween(this.fadeImage, this.group)
-        .to({ opacity: 1 }, 4000)
-        .easing(TWEEN.Easing.Quartic.InOut)
-        .yoyo(true)
-        .repeat(images.length*2);
-
     constructor(props) {
         super(props);
 
-        this.initialTween = this.imageTw;
+        this.initialTween = new TWEEN.Tween(this.bgFadeIn, this.group);
     }
 }
 
@@ -29,30 +21,28 @@ export class AlbumScene extends Component {
 
     scene = this.props.scene;
 
-    currentImage = images[0];
-    imageIndex = 0;
-
-    constructor(props) {
-        super(props);
-
-        this.scene.imageTw.onComplete(this.changePicture);
-    }
-
-
     render = () => {
+        let settings = {
+            arrows: true,
+            dots: true,
+            infinite: false,
+            speed: 2000,
+            autoplay: true,
+            autoplaySpeed: 50,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            fade: true,
+            cssEase: 'linear'
+        };
+
         if (!this.props.active) return (<div />);
         return (
-            <div className="black">
-                <SceneComps.BackgroundImage
-                    opacity={this.scene.fadeImage.opacity}
-                    src={images[parseInt((this.scene.imageTw._repeat-1)/2, 10)]} />
+            <div className="album">
+                <Slider {...settings}>
+                    {images.map((img, idx) => <img key={idx} src={img} alt='' className="slide fadeIn animated" />)}
+                </Slider>
             </div>);
-    }
-
-    changePicture = () => {
-
-        this.scene.imageTw.stop();
-        this.scene.imageTw.start(0);
     }
 }
 

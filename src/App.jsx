@@ -26,8 +26,8 @@ class App extends Component {
 
         this.state.beginTween.chain(this.state.inputTween);
         this.state.inputTween.chain(this.state.searchInputTween);
-        //this.state.searchInputTween.chain(this.state.albumTween);
-        this.state.searchInputTween.chain(this.state.endTween);
+        this.state.searchInputTween.chain(this.state.albumTween);
+        //this.state.searchInputTween.chain(this.state.endTween);
 
         this.state.beginTween.start();
     }
@@ -44,7 +44,7 @@ class App extends Component {
 
     render = () => {
         return (
-            <div className="App">
+            <div className="app">
                 <SceneComps.IntroMusic />
                 <BeginScene active={this.state.beginTween.isActive} scene={this.state.beginTween} />
                 <InputScene active={this.state.inputTween.isActive} scene={this.state.inputTween} />
