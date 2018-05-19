@@ -1,0 +1,107 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'animate';
+
+$item-size: 15vw;
+$item-padding: 8px;
+$font-size: 3rem;
+
+@mixin fullscreen() {
+  width: 100vw;
+  height: 100vh;
+  line-height: 100vh;
+}
+
+body, html {
+  display: block;
+  //overflow: hidden;
+  font: $font-size  'Material Icons';
+  background-color: white;
+  color: white;
+}
+
+title {
+  display:block;
+  font: 'Material Icons';
+}
+
+.black {
+  background-color: #000;
+}
+
+.App {
+  @include fullscreen();
+
+  text-align: center;
+  vertical-align: middle;
+
+  .background {
+    @include fullscreen();
+
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    position: fixed;
+
+    background-color: #000;
+
+    z-index: 1;
+  }
+
+  .content {
+    position:relative;
+    z-index: 20;
+
+    > * {
+      line-height: $font-size;
+    }
+
+
+  }
+
+  input {
+    width: $font-size*6;
+    height: 3rem;
+    border-radius: 5px;
+    padding: 0px;
+
+    &::selection {
+      background: transparent;
+      color: inherit;
+    }
+  }
+
+  input[type=button] {
+    width: $font-size;
+    height: $font-size;
+    text-align: center;
+    margin-left: 10px;
+
+    cursor: pointer;
+  }
+}
+
+.Image {
+
+  .header {
+    position: fixed;
+    height: 100vh;
+    width: 100vh;
+  }
+
+  .item {
+    display: inline-block;
+    width: $item-size;
+    height: $item-size;
+    padding: $item-padding;
+    line-height: $item-size;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
