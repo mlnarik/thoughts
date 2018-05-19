@@ -20,14 +20,11 @@ export class AlbumTween extends Scene {
 export class AlbumScene extends Component {
 
     settings = {
-        arrows: true,
-        //dots: true,
         speed: 2000,
-        autoplay: true,
-        autoplaySpeed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         adaptiveHeight: true,
+        infinite: false,
         fade: true,
         cssEase: 'linear'
     };
@@ -46,6 +43,7 @@ export class AlbumScene extends Component {
                     {images.map((img, idx) =>
                         <img key={idx} src={img} alt='' className="slide fadeIn animated" />)
                     }
+                    <div className="animated infinite rotate">refresh</div>
                 </Slider>
             </div>);
     }
