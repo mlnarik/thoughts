@@ -4,7 +4,7 @@ Experimental Art Project. Site is without description or any words.
 
 ## Preview
 
-![Preview](doc/preview.gif)
+![Preview](doc/preview.png)
 
 ## Music
 
