@@ -20,6 +20,7 @@ export class AlbumTween extends Scene {
 export class AlbumScene extends Component {
 
     settings = {
+        autoplay: true,
         speed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -39,9 +40,9 @@ export class AlbumScene extends Component {
         if (!this.props.active) return (<div />);
         return (
             <div className="album" onClick={this.play}>
-                <Slider {...this.settings} ref={slider => (this.slider = slider)}>
+                <Slider {...this.settings} ref={slider => (this.slider = slider)} className="animated-slow fadeIn" >
                     {images.map((img, idx) =>
-                        <img key={idx} src={img} alt='' className="slide fadeIn animated" />)
+                        <img key={idx} src={img} alt=''/>)
                     }
                     <div className="animated infinite rotate">refresh</div>
                 </Slider>
