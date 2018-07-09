@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TWEEN from '@tweenjs/tween.js';
 import Scene from '../Core/Scene';
 import * as SceneComps from '../Components/Comps';
+import { IntroMusic } from '../Components/Audio';
 
 import bg from "../assets/img/bg.jpg";
 
@@ -50,8 +51,15 @@ export class InputScene extends Component {
             this.scene.end();
         }
 
+        if (this.state.sequence === 1) {
+            var a = new IntroMusic();
+            a.play();
+        }
+
         this.setState({
             sequence: this.state.sequence + 1
         });
+
+
     }
 }

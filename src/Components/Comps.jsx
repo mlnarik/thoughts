@@ -47,20 +47,6 @@ export class LifeInput extends Component {
     }
 }
 
-export class IntroMusic extends Component {
-
-    componentDidMount = () => {
-        this.refs.audioControl.volume = 0.4
-    }
-
-    render = () => {
-        return (<audio ref="audioControl"
-            src={require('../assets/music/Kai_Engel_-_04_-_Moonlight_Reprise.mp3')}
-            autoPlay={true}/>
-        )
-    }
-}
-
 export const BackgroundImage = (props) => {
     return (
     <div className="background"

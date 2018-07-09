@@ -4,7 +4,6 @@ import { InputTween, InputScene } from './Scenes/InputScene';
 import { SearchInputTween, SearchInputScene } from './Scenes/SearchInputScene';
 import { AlbumTween, AlbumScene } from './Scenes/AlbumScene';
 import { EndTween, EndScene } from './Scenes/EndScene';
-import * as SceneComps from './Components/Comps';
 
 import './assets/styles/Main.scss';
 import './assets/styles/animate.scss';
@@ -45,7 +44,6 @@ class App extends Component {
     render = () => {
         return (
             <div className="app">
-                <SceneComps.IntroMusic />
                 <BeginScene active={this.state.beginTween.isActive} scene={this.state.beginTween} />
                 <InputScene active={this.state.inputTween.isActive} scene={this.state.inputTween} />
                 <SearchInputScene active={this.state.searchInputTween.isActive} scene={this.state.searchInputTween} />

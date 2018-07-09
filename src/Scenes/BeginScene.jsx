@@ -3,7 +3,6 @@ import TWEEN from '@tweenjs/tween.js';
 import Scene from '../Core/Scene';
 import * as SceneComps from '../Components/Comps';
 
-
 export class BeginTween extends Scene {
 
 
@@ -18,8 +17,6 @@ export class BeginTween extends Scene {
 
         this.twBgFadeIn.onComplete(this.end);
     }
-
-
 }
 
 export class BeginScene extends Component {
